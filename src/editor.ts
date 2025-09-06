@@ -56,135 +56,135 @@ export class SunSynkCardEditor
 		}
 
 		// Pattern-based helper hints for dynamic load/aux subfields
-		if (/^load\d+_name$/.test(name)) return 'Label for additional load.';
+		if (/^load\d+_name$/.test(name)) return 'Tên hiển thị cho tải bổ sung.';
 		if (/^load\d+_icon$/.test(name))
-			return 'Additional load icon (Can be set via template sensor).';
+			return 'Biểu tượng cho tải bổ sung (có thể đặt qua template sensor).';
 		if (/^load\d+_switch$/.test(name))
-			return 'Switch entity to control this additional load (optional).';
+			return 'Entity công tắc để điều khiển tải bổ sung này (tùy chọn).';
 		if (/^load\d+_max_threshold$/.test(name))
-			return 'Set the threshold that will activate the Max Colour.';
-		if (/^aux_load\d+_name$/.test(name)) return 'Label for auxiliary load.';
+			return 'Đặt ngưỡng để kích hoạt màu tối đa.';
+		if (/^aux_load\d+_name$/.test(name)) return 'Tên hiển thị cho tải phụ.';
 		if (/^aux_load\d+_icon$/.test(name))
-			return 'Icon will be used for this auxiliary load.';
+			return 'Biểu tượng sẽ dùng cho tải phụ này.';
 
 		// Global patterns across sections (safe and generic)
-		if (/^pv[1-6]_name$/.test(name)) return 'Custom label for a PV input.';
+		if (/^pv[1-6]_name$/.test(name)) return 'Tên tùy chỉnh cho một đầu vào PV.';
 		if (/^mppts$/.test(name))
-			return 'Number of MPPT inputs available on your inverter.';
+			return 'Số đầu vào MPPT có trên inverter.';
 		if (/^three_phase$/.test(name))
-			return 'Enable if your system/card should display in three-phase mode.';
+			return 'Bật nếu hệ thống/thẻ của bạn hiển thị chế độ ba pha.';
 		if (/^show_(inverter|battery|battery2|solar|load|grid)$/.test(name))
-			return 'Show or hide this section in the card.';
+			return 'Hiện hoặc ẩn phần này trên thẻ.';
 		if (/^show_daily(_.*)?$/.test(name))
-			return 'Display daily energy on the card.';
+			return 'Hiển thị năng lượng theo ngày trên thẻ.';
 		if (/^auto_scale$/.test(name))
-			return 'Automatically scale values based on recent ranges.';
-		if (/^.*_name$/.test(name)) return 'Custom label shown in the UI.';
+			return 'Tự động co giãn giá trị dựa trên phạm vi gần đây.';
+		if (/^.*_name$/.test(name)) return 'Tên tùy chỉnh hiển thị trên giao diện.';
 		if (/dynamic_icon$/.test(name))
-			return 'The icon will change to represent power source.';
+			return 'Biểu tượng sẽ thay đổi để hiển thị nguồn điện.';
 		if (/^.*_switch$/.test(name))
-			return 'Optional switch entity to control this element.';
+			return 'Entity công tắc tùy chọn để điều khiển thành phần này.';
 		if (/^.*_max_threshold$/.test(name))
-			return 'Maximum threshold used for progress/flow scaling.';
+			return 'Ngưỡng tối đa dùng cho việc co giãn tiến trình/dòng.';
 		// Must come before the generic *_colour rule; match both 'dynamic_colour' and '*_dynamic_colour'
 		if (/dynamic_colour$/.test(name))
-			return 'Change colour dynamically based on power level.';
-		if (/^.*_colour$/.test(name)) return 'Primary colour for this element.';
+			return 'Đổi màu động dựa trên mức công suất.';
+		if (/^.*_colour$/.test(name)) return 'Màu chính cho thành phần này.';
 		if (/^.*_off_colour$/.test(name))
-			return 'Colour used when the element is off/idle.';
+			return 'Màu dùng khi thành phần tắt/nhàn rỗi.';
 		if (/^.*_max_power$/.test(name))
-			return 'Optional cap used for scaling and progress calculations.';
+			return 'Giới hạn tùy chọn dùng cho tính toán co giãn và tiến trình.';
 		switch (name) {
 			case 'large_font':
-				return 'Use a larger font for card entities.';
+				return 'Dùng font chữ lớn hơn cho các entity trên thẻ.';
 			case 'wide':
-				return 'Use a wide layout for the card.';
+				return 'Dùng bố cục rộng cho thẻ.';
 			case 'additional_loads':
-				return 'Number of additional loads to configure (0–6).';
+				return 'Số lượng tải bổ sung cần cấu hình (0–6).';
 			case 'colour':
-				return 'Primary colour for this element.';
+				return 'Màu chính cho thành phần này.';
 			case 'efficiency':
-				return 'Show the effeciency of the mppts strings based on their max power.';
+				return 'Hiển thị hiệu suất của các chuỗi MPPT dựa trên công suất tối đa.';
 			case 'display_mode':
-				return 'Chose how to display solar information next to the sun icon.';
+				return 'Chọn cách hiển thị thông tin năng lượng mặt trời cạnh biểu tượng mặt trời.';
 			case 'custom_label':
-				return 'Custom label shown in the UI.';
+				return 'Tên tùy chỉnh hiển thị trên giao diện.';
 			case 'label_daily_grid_buy':
-				return 'Label for daily grid buy.';
+				return 'Tên hiển thị cho điện lưới mua hàng ngày.';
 			case 'label_daily_grid_sell':
-				return 'Label for daily grid sell.';
+				return 'Tên hiển thị cho điện lưới bán hàng ngày.';
 			case 'count	':
-				return 'Number of batteries to display.';
+				return 'Số lượng pin cần hiển thị.';
 			case 'energy':
-				return 'Total available energy of the battery in Wh.';
+				return 'Tổng năng lượng khả dụng của pin tính bằng Wh.';
 			case 'shutdown_soc':
-				return 'State of charge below which the battery is considered off.';
+				return 'SOC dưới mức này pin được coi là tắt.';
 			case 'shutdown_soc_offgrid':
-				return 'State of charge below which the battery is considered off when off-grid.';
+				return 'SOC dưới mức này pin được coi là tắt khi off-grid.';
 			case 'soc_end_of_charge':
-				return 'State of charge at which the battery is considered fully charged.';
+				return 'SOC tại mức này pin được coi là sạc đầy.';
 			case 'invert_power':
-				return 'Invert the direction of power flow animation.';
+				return 'Đảo ngược hướng hoạt ảnh dòng điện.';
 			case 'hide_soc':
-				return 'Hide additional current program capacity (SOC) or shutdown SOC.';
+				return 'Ẩn dung lượng chương trình hiện tại (SOC) hoặc SOC tắt máy.';
 			case 'show_absolute':
-				return 'Show absolute values for power.';
+				return 'Hiển thị giá trị công suất tuyệt đối.';
 			case 'show_remaining_energy':
-				return 'Show remaining energy of the battery.';
+				return 'Hiển thị năng lượng còn lại của pin.';
 			case 'remaining_energy_to_shutdown':
-				return 'Show remaining energy of the battery until it shuts down.';
+				return 'Hiển thị năng lượng còn lại của pin cho đến khi nó tắt.';
 			case 'invert_flow':
-				return 'Invert the direction of power flow.';
+				return 'Đảo ngược hướng dòng điện.';
 			case 'linear_gradient':
-				return 'Display battery SOC as a linear gradient.';
+				return 'Hiển thị SOC pin dạng dải màu tuyến tính.';
 			case 'invert_load':
-				return 'Set to true if your sensor provides a negative number when the load is drawing power';
+				return 'Đặt thành true nếu cảm biến trả giá trị âm khi tải tiêu thụ điện.';
 			case 'modern':
-				return 'Change inverter icon.';
+				return 'Đổi biểu tượng inverter.';
 			case 'invert_grid':
-				return 'Enable if your sensor provides a negative number for grid import and positive number for grid export.';
+				return 'Bật nếu cảm biến trả giá trị âm cho nhập lưới và dương cho xuất lưới.';
 			case 'aux_loads':
-				return 'Number of auxiliary loads to configure (0–2).';
+				return 'Số lượng tải phụ cần cấu hình (0–2).';
 			case 'show_nonessential':
-				return 'Show non-essential loads.';
+				return 'Hiển thị tải không thiết yếu.';
 			case 'show_aux':
-				return 'Show the Aux subsection (separate auxiliary load configuration).';
+				return 'Hiển thị phần Aux (cấu hình tải phụ tách riêng).';
 			case 'label_daily_load':
-				return 'Alternate label for the daily load value displayed under Load.';
+				return 'Tên thay thế cho giá trị tải hàng ngày hiển thị dưới mục Tải.';
 			case 'navigate':
-				return 'Optional navigation path to open when the icon is clicked.';
+				return 'Đường dẫn điều hướng tùy chọn khi nhấp vào biểu tượng.';
 			case 'import_icon':
-				return 'Icon shown for the import flow. Can be set using a template sensor.';
+				return 'Biểu tượng hiển thị cho dòng nhập. Có thể đặt bằng template sensor.';
 			case 'export_icon':
-				return 'Icon shown for the export flow. Can be set using a template sensor.';
+				return 'Biểu tượng hiển thị cho dòng xuất. Có thể đặt bằng template sensor.';
 			case 'disconnected_icon':
-				return 'Icon shown when the grid is disconnected. Can be set using a template sensor.';
+				return 'Biểu tượng hiển thị khi lưới bị ngắt. Có thể đặt bằng template sensor.';
 			case 'aux_name':
-				return 'Aux group title shown in the UI.';
+				return 'Tiêu đề nhóm Aux hiển thị trên giao diện.';
 			case 'aux_daily_name':
-				return 'Label used for daily Aux value.';
+				return 'Tên hiển thị cho giá trị Aux hàng ngày.';
 			case 'aux_type':
-				return 'Icon shown for the Aux group.';
+				return 'Biểu tượng hiển thị cho nhóm Aux.';
 			case 'invert_aux':
-				return 'Invert the direction of Aux flow arrows.';
+				return 'Đảo ngược hướng mũi tên dòng Aux.';
 			case 'show_absolute_aux':
-				return 'Show Aux values as absolute (no sign) for clarity.';
+				return 'Hiển thị giá trị Aux dạng tuyệt đối (không dấu) để dễ hiểu.';
 			case 'aux_dynamic_colour':
-				return 'Aux elements on the card will be greyed out if aux power is 0.';
+				return 'Các phần tử Aux trên thẻ sẽ bị làm mờ nếu công suất Aux = 0.';
 			case 'aux_colour':
-				return 'Primary colour for Aux flow.';
+				return 'Màu chính cho dòng Aux.';
 			case 'aux_off_colour':
-				return 'Colour used when Aux path is off/idle.';
+				return 'Màu dùng khi đường Aux tắt/nhàn rỗi.';
 			case 'show_daily_aux':
-				return 'Display daily Aux energy beneath the Aux section.';
+				return 'Hiển thị năng lượng Aux hàng ngày bên dưới phần Aux.';
 			case 'decimal_places':
-				return 'Number of decimal places for power values (0-3).';
+				return 'Số chữ số thập phân cho giá trị công suất (0–3).';
 			case 'decimal_places_energy':
-				return 'Number of decimal places for energy values (0-3).';
+				return 'Số chữ số thập phân cho giá trị năng lượng (0–3).';
 			case 'soc_decimal_places':
-				return 'Decimal places for State of Charge display (0-3).';
+				return 'Số chữ số thập phân cho hiển thị SOC (0–3).';
 			case 'dynamic_line_width':
-				return 'Animate line widths based on power level. Disable for a flatter look.';
+				return 'Hoạt ảnh độ rộng đường dựa trên mức công suất. Tắt để nhìn phẳng hơn.';
 			case 'max_line_width': {
 				const min = Number(this._config?.min_line_width ?? 1);
 				const max = Number(this._config?.max_line_width ?? 1);
@@ -200,19 +200,19 @@ export class SunSynkCardEditor
 					: 'Minimum dynamic line width (1-8).';
 			}
 			case 'animation_speed':
-				return 'Adjusts the speed of flow animations. Higher = faster.';
+				return 'Điều chỉnh tốc độ hoạt ảnh dòng chảy. Giá trị cao = nhanh hơn.';
 			case 'off_threshold':
-				return 'Below this power value the path is considered off/idle.';
+				return 'Dưới mức công suất này, đường được coi là tắt/nhàn rỗi.';
 			case 'path_threshold':
-				return 'The colour of the path will change to the source colour if the percentage supply by a single source equals or exceeds this value.';
+				return 'Màu đường sẽ đổi sang màu nguồn nếu phần trăm cung cấp bởi một nguồn ≥ giá trị này.';
 			case 'max_power':
-				return 'Optional cap used for scaling and progress calculations.';
+				return 'Giới hạn tùy chọn dùng cho tính toán co giãn và tiến trình.';
 			case 'title_size':
 				return "CSS font-size for title, e.g. '1.2em' or '18px'.";
 			case 'card_height':
-				return 'Card height: text value (e.g. 360) or an entity providing a numeric height.';
+				return 'Chiều cao thẻ: giá trị văn bản (vd 360) hoặc entity số.';
 			case 'card_width':
-				return 'Card width: text value (e.g. 640) or an entity providing a numeric width.';
+				return 'Chiều rộng thẻ: giá trị văn bản (vd 640) hoặc entity số.';
 			default:
 				return undefined;
 		}
